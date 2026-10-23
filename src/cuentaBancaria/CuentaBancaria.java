@@ -48,6 +48,8 @@ public abstract class CuentaBancaria {
     System.out.println("Saldo: " + this.saldo);
     System.out.println("Tasa Interes: " + this.tasaInteres);
   }
-
+  protected void ajustarSaldo(double cambio) {
+    saldo += cambio;
+  }
 
 }
