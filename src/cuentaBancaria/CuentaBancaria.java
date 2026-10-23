@@ -1,16 +1,23 @@
 package cuentaBancaria;
 
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
   private String numeroCuenta;
   private String titular;
-  private double saldo;
-  private double tasaInteres;
+  private double saldo = 0;
+  private double tasaInteres = 0;
 
   public CuentaBancaria(String numeroCuenta, String titular, double saldo, double tasaInteres) {
+
     this.numeroCuenta = numeroCuenta;
     this.titular = titular;
-    this.saldo = saldo;
-    this.tasaInteres = tasaInteres;
+    if (saldo >= 0) {
+      this.saldo = saldo;
+    } else {
+      System.out.println("Cuenta inicial en 0");
+    }
+    if (tasaInteres >= 0) {
+      this.tasaInteres = tasaInteres;
+    }
   }
 
   public String getNumeroCuenta() {
@@ -28,4 +35,19 @@ public class CuentaBancaria {
   public double getTasaInteres() {
     return tasaInteres;
   }
+
+  public abstract double depositar(double monto);
+
+  public abstract double retirar(double monto);
+
+  public abstract double aplicarInteres(double tasa);
+
+  public void mostrarInfo() {
+    System.out.println("Numero Cuenta: " + this.numeroCuenta);
+    System.out.println("Titular: " + this.titular);
+    System.out.println("Saldo: " + this.saldo);
+    System.out.println("Tasa Interes: " + this.tasaInteres);
+  }
+
+
 }
