@@ -42,6 +42,10 @@ public abstract class CuentaBancaria {
 
   public abstract double aplicarInteres(double tasa);
 
+  protected void actualizaSaldo(double saldo) {
+    this.saldo = saldo;
+  }
+
   public void mostrarInfo() {
     System.out.println("Numero Cuenta: " + this.numeroCuenta);
     System.out.println("Titular: " + this.titular);

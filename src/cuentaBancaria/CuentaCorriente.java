@@ -18,7 +18,7 @@ public class CuentaCorriente extends CuentaBancaria{
     @Override
     public double depositar(double monto){
         if (monto <= 0){
-            this.saldo += monto;
+            actualizaSaldo(this.getSaldo() + monto);
         }
         return getSaldo();
     }
@@ -53,15 +53,16 @@ public class CuentaCorriente extends CuentaBancaria{
 
     @Override
     public double aplicarInteres(double monto){
-
-
-
-
+        return getTasaInteres();
     }
 
     @Override
     public void mostrarInfo(){
-
+        System.out.println("Numero Cuenta: " + this.getNumeroCuenta());
+        System.out.println("Titular: " + this.getTitular());
+        System.out.println("Saldo: " + this.getSaldo());
+        System.out.println("Tasa Interes: 0.0");
+        System.out.println("Limite de Sobregiro: " + this.limiteSobregiro);
     }
 
 
